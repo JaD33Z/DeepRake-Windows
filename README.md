@@ -1,89 +1,45 @@
-# DeepRake V1 — Windows installer build
+DeepRake V1 — OSINT Research Toolkit
 
-This is the original DeepRake browser GUI and **V1 Quantum-Dig bookmarklet**,
-prepared for packaging as a single Windows installer. The V2 popup/relay flow
-is not included.
+DeepRake is a standalone research application designed to collect search engine results, organize findings, and generate new search queries through automated pivoting.
 
-## What the installed app does
+Built for OSINT research, investigative workflows, and information discovery.
 
-1. Install `DeepRake_Setup.exe` (once the Windows build has completed).
-2. Launch **DeepRake** using the desktop or Start Menu shortcut.
-3. Its small control window keeps a local server running and opens the existing
-   browser interface at `http://localhost:5000/dorks`.
-4. Drag **Quantum-Dig** from the GUI to the browser's bookmarks bar once.
-5. When done, click **Stop and Close** in the DeepRake control window.
+Download & Install (Windows)
 
-Python, Flask, and the pivot engine are bundled inside the installed app.
-Recipients do not install Python or use a terminal.
+1. Go to the "DeepRake Windows Download Page" (https://github.com/JaD33Z/DeepRake-Windows/releases/tag/v1.0.0-test1).
+2. Under Assets, download "DeepRake_Setup.exe".
+3. Double-click the installer and follow the instructions.
+4. Launch DeepRake from your desktop shortcut or Start menu.
 
-The app listens only on `127.0.0.1:5000` (the original bookmarklet address).
-If something else already uses port 5000, the launcher displays an error.
-The app needs a web browser and network connectivity to search the public web.
-Use DeepRake only for lawful OSINT and authorized research.
+DeepRake opens in your web browser.
 
-## Where data goes
+No Python installation or terminal setup required.
 
-On Windows, writable search results, downloaded harvest data, pivot state, and
-seed dorks live under:
+Note: This is an initial test release. Windows may display a warning because the installer is not digitally signed.
 
-`%LOCALAPPDATA%\DeepRake\`
+Features
 
-This survives application updates and avoids trying to write inside the
-installed application's folder. The installer does not remove these user files
-when the application is uninstalled. The bundled seed dorks are copied on
-first launch if they are not already present.
+- Google Dork Builder — Construct targeted searches using advanced search operators.
+- Quantum-Dig Bookmarklet — Capture Google search results directly from your browser.
+- Harvest Feed — Collect and review discovered URLs.
+- Auto-Pivot — Generate new related search queries from harvested results.
+- Export Results — Download collected findings and generated queries.
 
-## One-time build (Windows)
+Quick Start
 
-The easiest reproducible way to produce the setup executable is the included
-GitHub Actions workflow:
+1. Launch DeepRake.
+2. In the Quantum-Dig Bookmarklet section, drag [ Drag Me ] Quantum-Dig onto your browser's bookmarks bar.
+3. Perform a Google search.
+4. Click your Quantum-Dig bookmark while viewing the search results.
+5. Return to DeepRake to review the collected URLs in the Harvest Feed.
+6. Click Auto-Pivot to generate additional search queries.
 
-1. Put the contents of this folder into a **private** GitHub repository.
-2. Open **Actions → Build DeepRake V1 Windows Installer → Run workflow**.
-3. When the workflow succeeds, download the
-   **DeepRake-Windows-Installer** artifact.
-4. Unzip the downloaded workflow artifact to get `DeepRake_Setup.exe`.
-5. Test the installer on a clean Windows computer before sharing it.
+Repeat the process to expand your research.
 
-The workflow automatically installs Python build dependencies, creates the
-bundled application with PyInstaller, and produces the single installer using
-Inno Setup. The **builder** needs Windows; the **recipient** does not need
-Python, a virtual environment, PyInstaller, or Inno Setup.
+Responsible Use
 
-### Manual equivalent
+DeepRake is intended for lawful, ethical OSINT research using publicly available information. Respect website policies, privacy, and applicable laws.
 
-On a Windows developer machine with Python 3.11 and Inno Setup installed,
-install `requirements.txt` plus PyInstaller 6.22.3. Build
-`deeprake_desktop.py` using PyInstaller's `--onedir --windowed` mode and
-include `templates` and `data/dorks` as bundled data. Compile
-`installer/DeepRake.iss` with Inno Setup's ISCC. The included GitHub workflow
-is the authoritative reference for exact build steps.
+---
 
-## What changed compared to Jon's original source
-
-Only the packaging copy was changed:
-
-- Added a small launch/stop control window; the browser GUI and V1 bookmarklet
-  file `templates/dorks.html` are **unchanged**.
-- Adjusted the Flask template location for frozen executables.
-- Moved writable data to LocalAppData when running packaged.
-- Called the **same** pivot engine directly instead of launching a Python
-  subprocess (which would relaunch `DeepRake.exe` in a frozen build).
-- Fixed two original endpoints that used working-directory-relative paths.
-- Disabled Flask debug mode in the original command-line entry point.
-
-The included `tests/test_app.py` exercises the GUI, bookmarklet string, result
-intake, pivot generation, harvest download, and clear behavior without network
-access.
-
-## Important distribution note
-
-The setup executable is **not digitally signed**. Windows SmartScreen or
-Smart App Control may warn about or block unfamiliar unsigned installers.
-For distribution beyond a small trusted test group, plan to digitally sign the
-installer, verify a clean test machine, and distribute it from a trusted
-download location. Many email providers block executable attachments (even
-inside ZIP files), so email a download link rather than the setup file.
-
-The completed Windows `.exe` is **not** included in this source ZIP: it must
-be built and verified on Windows, as described above.
+DeepRake V1 — Quantum-Dig Mode
