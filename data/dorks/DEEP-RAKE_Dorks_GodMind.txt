@@ -1,0 +1,62 @@
+# -------------------------
+# Ancient Technology & Lost Civilizations
+# -------------------------
+intitle:"index of" "ancient technology"
+site:.edu "lost civilization" filetype:pdf
+site:.edu "pyramid energy" OR "resonance chamber" filetype:pdf
+"anti-gravity device" filetype:pdf
+site:.org "archaeoastronomy" filetype:pdf
+
+# -------------------------
+# Sacred Geometry & Spiritual Engineering
+# -------------------------
+site:.edu "sacred geometry" filetype:pdf
+site:.edu "harmonic resonance" filetype:pdf
+"vortex mathematics" filetype:pdf
+site:.org "flower of life" filetype:pdf
+site:.edu "golden ratio" OR "phi ratio" filetype:pdf
+
+# -------------------------
+# Classified Leaks & Declassified Archives
+# -------------------------
+site:cia.gov "CREST" filetype:pdf
+site:.mil "energy weapon" filetype:pdf
+site:nsa.gov "remote viewing" filetype:pdf
+site:.gov "declassified" "not for public release"
+site:.mil "electromagnetic pulse" filetype:pdf
+
+# -------------------------
+# Fringe Physics & Suppressed Science
+# -------------------------
+site:nasa.gov "torsion field" filetype:pdf
+site:lanl.gov "scalar wave" filetype:pdf
+site:.edu "aether physics" filetype:pdf
+"zero point energy" site:.edu filetype:pdf
+site:.org "free energy" filetype:pdf
+
+# -------------------------
+# Mind / Consciousness Research
+# -------------------------
+site:.edu "pineal gland" "DNA activation" filetype:pdf
+site:.edu "brainwave entrainment" filetype:pdf
+site:.edu "Schumann resonance" filetype:pdf
+site:.edu "non-local consciousness" filetype:pdf
+site:.org "remote viewing" filetype:pdf
+
+# -------------------------
+# Esoteric Text Repositories
+# -------------------------
+intitle:"index of" "occult"
+intitle:"index of" "alchemy"
+intitle:"index of" "hermetic"
+intitle:"index of" "gnostic"
+intitle:"index of" "ancient manuscripts"
+
+# -------------------------
+# Multilingual Unlocks
+# -------------------------
+"geheimes wissen" filetype:pdf site:.de
+"conoscenza proibita" filetype:pdf site:.it
+"conocimiento prohibido" filetype:pdf site:.es
+"conhecimento proibido" filetype:pdf site:.br
+"秘密の知識" filetype:pdf site:.jp
